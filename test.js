@@ -4,11 +4,12 @@ const RP = Math.PI / 45;
 const TWO_PI = Math.PI * 2;
 const V = 4;
 const GRID_MAX = 256;
-const bg_1 = "src/bg1.png";
-const character_1_0 = "src/test3.png";
-const character_1_1 = "src/test3-1.png";
-const character_1_2 = "src/test3-2.png";
-const character_1_3 = "src/test3-3.png";
+const bg_1 = "https://github.com/KeyvanOh/kdt/blob/main/src/bg1.png?raw=true";
+const character_1_0 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3.png?raw=true";
+const character_1_1 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-1.png?raw=true";
+const character_1_2 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-2.png?raw=true";
+const character_1_3 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
+
 
 let d = $(document);
 d.ready(function () {
