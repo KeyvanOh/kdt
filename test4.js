@@ -10,6 +10,7 @@ const character_1_1 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-1.png
 const character_1_2 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-2.png?raw=true";
 const character_1_3 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
+let eventNumber = 0;
 
 let d = $(document);
 d.ready(function () {
@@ -139,13 +140,6 @@ d.ready(function () {
     let gridNumberHeavy = 0;
     setInterval(function () {
       widthV = document.documentElement.clientWidth;
-      //heightV = document.documentElement.clientHeight;
-      //console.log($("header"));
-      //console.log($("header").height());
-      //console.log($("header").outerHeight(true));
-      //console.log($("main").height());
-      //console.log($("main").outerHeight(true));
-      //heightV = document.documentElement.clientHeight -300;
       heightV = document.documentElement.clientHeight - $("header").height();
       for (k of keys) {
         //if (k == 39) {
@@ -247,6 +241,8 @@ d.ready(function () {
 
         //}
         //$(".grid" + gridNumberHeavy).css("background", "red");
+
+        eventNumber = gridNumberHeavy;
       }
       frame.css("width", widthV + "px");
       frame.css("height", heightV + "px");
