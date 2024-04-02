@@ -16,6 +16,7 @@
     "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
   let eventNumber = 0;
+  let gridNumberHeavy = -1;
 
   let d = $(document);
   d.ready(function () {
@@ -142,7 +143,7 @@
     let r = 0;
     let h = 0;
     let gridNumber = 0;
-    let gridNumberHeavy = 0;
+    //let gridNumberHeavy = 0;
     setInterval(function () {
       widthV = document.documentElement.clientWidth;
       heightV = document.documentElement.clientHeight - $("header").height();
@@ -272,6 +273,6 @@
         inputText.focus();
         thought = inputText.val();
       }
-      eventNumber = gridNumberHeavy;
+      //eventNumber = gridNumberHeavy;
     }, 10);
   });
