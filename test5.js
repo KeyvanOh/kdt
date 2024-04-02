@@ -142,7 +142,7 @@
     let r = 0;
     let h = 0;
     let gridNumber = 0;
-    let gridNumberHeavy = 0;
+    //let gridNumberHeavy = 0;
     setInterval(function () {
       widthV = document.documentElement.clientWidth;
       //heightV = document.documentElement.clientHeight;
