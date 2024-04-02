@@ -16,7 +16,8 @@
     "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
   let eventNumber = 0;
-  let gridNumberHeavy = -1;
+  //let gridNumberHeavy = -1;
+  let gridNumberHeavy = 0;
 
   let d = $(document);
   d.ready(function () {
