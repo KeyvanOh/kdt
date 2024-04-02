@@ -15,10 +15,6 @@
   const character_1_3 =
     "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
-  let eventNumber = 0;
-  //let gridNumberHeavy = -1;
-  let gridNumberHeavy = 0;
-
   let d = $(document);
   d.ready(function () {
     let body = $("main");
@@ -144,9 +140,16 @@
     let r = 0;
     let h = 0;
     let gridNumber = 0;
-    //let gridNumberHeavy = 0;
+    let gridNumberHeavy = 0;
     setInterval(function () {
       widthV = document.documentElement.clientWidth;
+      //heightV = document.documentElement.clientHeight;
+      //console.log($("header"));
+      //console.log($("header").height());
+      //console.log($("header").outerHeight(true));
+      //console.log($("main").height());
+      //console.log($("main").outerHeight(true));
+      //heightV = document.documentElement.clientHeight -300;
       heightV = document.documentElement.clientHeight - $("header").height();
       for (k of keys) {
         //if (k == 39) {
@@ -194,28 +197,60 @@
           (Math.floor(-leftMoved / 64) % 16) +
           Math.floor((1024 - topMoved) / 64) * 16;
 
+        //debugText.text(gridNumberHeavy);
+        //debugText.text(`${gridNumberHeavy}`);
+        //debugText.text(`${gridNumberHeavy}, 1`);
         let mapNumber = -1;
+        //console.log(topMoved);
 
+        //if (leftMoved - 32 < 0 && gridNumberHeavy >= 0) {
         if (leftMoved - 32 < 0 && gridNumberHeavy >= 0 && topMoved > -32) {
+          //console.log(leftMoved);
+          //console.log(-leftMoved);
+          //console.log(-leftMoved / 1024);
+          //console.log(Math.floor(-leftMoved / 1024));
+          //console.log(Math.floor((-leftMoved + 32) / 1024));
           mapNumber = Math.floor((-leftMoved + 32) / 1024);
         }
+        //debugText.text(`${gridNumberHeavy}, ${leftMoved}`);
         debugText.text(`${gridNumberHeavy}, ${mapNumber}`);
+        //if (leftMoved < 0) {
 
+        //debugText.text(`${gridNumberHeavy}, ${Math.abs(leftMoved)}`);
+        //console.log();
+        //debugText.text(${gridNumberHeavy});
+        //console.log(gridNumber);
+        //console.log(-leftMoved - (gridNumber % 16) * 64);
+        //console.log((-leftMoved - (gridNumber % 16) * 64) % 1024);
         if (-leftMoved - (gridNumber % 16) * 64 > 32) {
+          //if (gridNumber % 16 != 0) {
+          //  gridNumberHeavy = gridNumber + 1 + 16;
+          //} else if ((gridNumber + 1) % 16 != 0) {
           if ((gridNumber + 1) % 16 != 0) {
             gridNumberHeavy = gridNumber + 1;
           } else {
+            //gridNumberHeavy = -1;
             gridNumberHeavy = gridNumber + 1 - 16;
           }
+          //gridNumberHeavy = gridNumber + 1;
         } else {
           gridNumberHeavy = gridNumber;
         }
+        //if (gridNumberHeavy != -1) {
         if (Math.floor((1024 - topMoved) % 64) < 32) {
+          /*
+          if (gridNumberHeavy - 16 >= 0) {
+            gridNumberHeavy = gridNumberHeavy - 16;
+          } else {
+            gridNumberHeavy = -2;
+          }
+          */
           gridNumberHeavy = gridNumberHeavy - 16;
         }
         gridNumberHeavy = gridNumberHeavy % 256;
 
-        //eventNumber = gridNumberHeavy;
+        //}
+        //$(".grid" + gridNumberHeavy).css("background", "red");
       }
       frame.css("width", widthV + "px");
       frame.css("height", heightV + "px");
@@ -233,14 +268,17 @@
             topMoved + heightV / 2 - 1024 + 64 + 64 * Math.floor(i / 16) + "px"
           );
         if (i != gridNumberHeavy) {
-          //if (grid.css("background") != "rgb(0, 128, 0)") {
-          //  grid.css("background", "rgb(0, 128, 0)");
-          //}
+          if (grid.css("background") != "transparent") {
+            grid.css("background", "transparent");
+          }
+        } else {
+          grid.css("background", "rgb(128, 0, 0)");
         }
       }
 
       ms++;
       if (ms >= 20) {
+        //if (characterImage.attr("src") == "src/test3.png") {
         if (characterImage.attr("src") == character_1_0) {
           characterImage.attr("src", character_1_1);
         } else if (characterImage.attr("src") == character_1_1) {
@@ -266,6 +304,7 @@
           jump = false;
         }
       }
+      //console.log($(".grid226"));
 
       characterImage.css("top", sin * 8 + h + "px");
       thoughtText.css("top", heightV / 2 + sin * 8 + h - 20 + "px");
@@ -274,6 +313,6 @@
         inputText.focus();
         thought = inputText.val();
       }
-      //eventNumber = gridNumberHeavy;
+      console.log(gridNumberHeavy);
     }, 10);
   });
