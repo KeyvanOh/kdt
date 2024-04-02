@@ -16,6 +16,8 @@
     "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
   let d = $(document);
+  let eventNumber = 0;
+  let gridNumberHeavy = 0;
   d.ready(function () {
     let body = $("main");
     let frame = $('<div id="frame"></div>');
