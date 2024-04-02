@@ -1,24 +1,29 @@
-const FRAME_WIDTH = 800;
-const FRAME_HEIGHT = 800;
-const RP = Math.PI / 45;
-const TWO_PI = Math.PI * 2;
-const V = 4;
-const GRID_MAX = 256;
-const bg_1 = "https://github.com/KeyvanOh/kdt/blob/main/src/bg1.png?raw=true";
-const character_1_0 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3.png?raw=true";
-const character_1_1 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-1.png?raw=true";
-const character_1_2 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-2.png?raw=true";
-const character_1_3 = "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
-let eventNumber = 0;
+  const FRAME_WIDTH = 800;
+  const FRAME_HEIGHT = 800;
+  const RP = Math.PI / 45;
+  const TWO_PI = Math.PI * 2;
+  const V = 4;
+  const GRID_MAX = 256;
+  const bg_1 = "https://github.com/KeyvanOh/kdt/blob/main/src/bg1.png?raw=true";
+  const character_1_0 =
+    "https://github.com/KeyvanOh/kdt/blob/main/src/test3.png?raw=true";
+  const character_1_1 =
+    "https://github.com/KeyvanOh/kdt/blob/main/src/test3-1.png?raw=true";
+  const character_1_2 =
+    "https://github.com/KeyvanOh/kdt/blob/main/src/test3-2.png?raw=true";
+  const character_1_3 =
+    "https://github.com/KeyvanOh/kdt/blob/main/src/test3-3.png?raw=true";
 
-let d = $(document);
-d.ready(function () {
+  let eventNumber = 0;
+
+  let d = $(document);
+  d.ready(function () {
     let body = $("main");
     let frame = $('<div id="frame"></div>');
     let characterBox = $('<div id="characterBox"></div>');
     //let characterImage = $('<img src="src/test3.png" />');
-    let characterImage = $('<img src='+ character_1_0 +' />');
+    let characterImage = $("<img src=" + character_1_0 + " />");
 
     let debugText = $("<p>");
     let thoughtText = $("<p>");
@@ -37,7 +42,7 @@ d.ready(function () {
       .css("position", "absolute")
       .css("position", "relative");
     //let bgImage = $('<img src="src/bg1.png">');
-    let bgImage = $('<img src='+ bg_1 +'>');
+    let bgImage = $("<img src=" + bg_1 + ">");
     bgImage.css("position", "absolute");
     let inputText = $('<input type="text"/>');
     inputText
@@ -187,62 +192,28 @@ d.ready(function () {
           (Math.floor(-leftMoved / 64) % 16) +
           Math.floor((1024 - topMoved) / 64) * 16;
 
-        //debugText.text(gridNumberHeavy);
-        //debugText.text(`${gridNumberHeavy}`);
-        //debugText.text(`${gridNumberHeavy}, 1`);
         let mapNumber = -1;
-        //console.log(topMoved);
 
-        //if (leftMoved - 32 < 0 && gridNumberHeavy >= 0) {
         if (leftMoved - 32 < 0 && gridNumberHeavy >= 0 && topMoved > -32) {
-          //console.log(leftMoved);
-          //console.log(-leftMoved);
-          //console.log(-leftMoved / 1024);
-          //console.log(Math.floor(-leftMoved / 1024));
-          //console.log(Math.floor((-leftMoved + 32) / 1024));
           mapNumber = Math.floor((-leftMoved + 32) / 1024);
         }
-        //debugText.text(`${gridNumberHeavy}, ${leftMoved}`);
         debugText.text(`${gridNumberHeavy}, ${mapNumber}`);
-        //if (leftMoved < 0) {
 
-        //debugText.text(`${gridNumberHeavy}, ${Math.abs(leftMoved)}`);
-        //console.log();
-        //debugText.text(${gridNumberHeavy});
-        //console.log(gridNumber);
-        //console.log(-leftMoved - (gridNumber % 16) * 64);
-        //console.log((-leftMoved - (gridNumber % 16) * 64) % 1024);
         if (-leftMoved - (gridNumber % 16) * 64 > 32) {
-          //if (gridNumber % 16 != 0) {
-          //  gridNumberHeavy = gridNumber + 1 + 16;
-          //} else if ((gridNumber + 1) % 16 != 0) {
           if ((gridNumber + 1) % 16 != 0) {
             gridNumberHeavy = gridNumber + 1;
           } else {
-            //gridNumberHeavy = -1;
             gridNumberHeavy = gridNumber + 1 - 16;
           }
-          //gridNumberHeavy = gridNumber + 1;
         } else {
           gridNumberHeavy = gridNumber;
         }
-        //if (gridNumberHeavy != -1) {
         if (Math.floor((1024 - topMoved) % 64) < 32) {
-          /*
-          if (gridNumberHeavy - 16 >= 0) {
-            gridNumberHeavy = gridNumberHeavy - 16;
-          } else {
-            gridNumberHeavy = -2;
-          }
-          */
           gridNumberHeavy = gridNumberHeavy - 16;
         }
         gridNumberHeavy = gridNumberHeavy % 256;
 
-        //}
-        //$(".grid" + gridNumberHeavy).css("background", "red");
-
-        eventNumber = gridNumberHeavy;
+        //eventNumber = gridNumberHeavy;
       }
       frame.css("width", widthV + "px");
       frame.css("height", heightV + "px");
@@ -263,12 +234,11 @@ d.ready(function () {
           //if (grid.css("background") != "rgb(0, 128, 0)") {
           //  grid.css("background", "rgb(0, 128, 0)");
           //}
-        } 
+        }
       }
 
       ms++;
       if (ms >= 20) {
-        //if (characterImage.attr("src") == "src/test3.png") {
         if (characterImage.attr("src") == character_1_0) {
           characterImage.attr("src", character_1_1);
         } else if (characterImage.attr("src") == character_1_1) {
@@ -294,7 +264,6 @@ d.ready(function () {
           jump = false;
         }
       }
-      //console.log($(".grid226"));
 
       characterImage.css("top", sin * 8 + h + "px");
       thoughtText.css("top", heightV / 2 + sin * 8 + h - 20 + "px");
@@ -303,5 +272,6 @@ d.ready(function () {
         inputText.focus();
         thought = inputText.val();
       }
+      eventNumber = gridNumberHeavy;
     }, 10);
   });
